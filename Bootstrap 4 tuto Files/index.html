@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<!--- Mandatory for running Bootstrap, set up default width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Complete Bootstrap 4 Website Layout</title>
+
+	<!--- BootstrapCSS  -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+	<!--- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!--- Jpopper -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+	<!--- BootstrapJS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<!-- Social logos from font awesome -->
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+
+<!--- https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+<!--- LESS style variables : https://getbootstrap.com/docs/3.4/customize/#less-variables-section -->
+<!--- https://getbootstrap.com/docs/4.0/layout/grid/ -->
+<!---  -->
+<!---  -->
+<!---  -->
+<!---  -->
+<!---  -->
+<!---  -->
+<!---  -->
+<!---  -->
+
+
+<!-- Navigation -->
+<!-- md references the expand navigation in the css file for resizing, fluid takes all the width, sticky top opped to fixed. data-toggle collapse allows to hide the target content on press
+ -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+	<!--- bootstrap uses a grid system, each element is wrapped inside a container div -->
+	<div class="container-fluid">
+
+		<a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+		<!--- the button will appear when the width of the browser is smaller than the navbar contents, causing the navbar to diseapear just to be collapsed by the button which appeared instead, see
+		https://getbootstrap.com/docs/4.0/components/navbar/#responsive-behaviors -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<!---  ml-auto will push the navbar on the right side when it appears on screen widening  -->
+			<ul class="navbar-nav ml-auto">
+				<!--- active class is a built in hover darkening, this button will be perma darkened -->
+				<!--- the navbar buttons -->
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Services</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Team</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Connect</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<!--- -->
+<!--- -->
+<!--- Image Slider -->
+<!--- data ride will autoplay the carousel after the user select a first image. See https://getbootstrap.com/docs/4.0/components/carousel/ 
+-->
+<div id="slides" class="carousel slide" data-ride="carousel">
+	<ul class="carousel-indicators">
+		<!--- set up the default slide to be shwon by rendering it active -->
+		<li data-target="#slides" data-slide-to="0" class="active"></li>
+		<li data-target="#slides" data-slide-to="1"></li>
+		<li data-target="#slides" data-slide-to="2"></li>
+	</ul>
+	<!--- images are loaded here -->
+	<div class="carousel-inner">
+
+		<!--- Carousel image #1  -->
+		<div class="carousel-item active">
+			<img src="img/background.png">
+
+			<div class="carousel-caption">
+				<!--- headers are resized, lg stands for large -->
+				<h1 class="display-2">Bootstrap</h1>
+				<h3>Complete Website Layout</h3>
+				<button tye="button" class="btn btn-outline-light btn-lg">VIEW DEMO</button>
+				<!--- btn primary set up a primary button with a blue background to be identified. We will change the color later in custom css.
+				Buttons like most elements are autoscaled to content by default. -->
+				<button tye="button" class="btn btn-primary btn-lg">Get Started</button>
+			</div>
+
+		</div>
+		<!--- Carousel image #2  -->
+		<div class="carousel-item">
+			<img src="img/background2.png">
+
+		</div>
+		<!--- Carousel image #3  -->
+		<div class="carousel-item">
+			<img src="img/background3.png">
+
+		</div>
+	</div>
+</div>
+
+
+<!--- Jumbotron -->
+<!--- A jumbotron indicates a big box for calling extra attention to some special content or information. Like most of the content it uses 2 columns (bootstrap grid layout) to display 2 containers of elements, that we will link to a rescaling pattern -->
+<!--- -->
+<div class="container-fluid">
+	<div class="row jumbotron">
+
+		<!--- specify the number of column the div can use according to the type of resolution (see css) https://getbootstrap.com/docs/4.0/layout/grid/ -->
+		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+			<!--- lead allows for lightweight paragraphs-->
+			<p class="lead">A Web hosting service allows individuals and organizations to make their website accessible via the Web</p>
+		</div>
+		<!--- here from md to xl the element will be beside the previous paragraph, as it takes the remaining number of columns. For smaller screen it will be renered beneath as it takes the maximum number of columns -->
+		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+			<a href="#">
+				<button type="button" class="btn btn-outline-secondary btn-lg">Web Hosting</button>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+
+<!--- Welcome Section -->
+<!--- -->
+<!--- Will add some additional padding b/w rows. padding allows for use of custom css classes -->
+<div class="container-fluid padding">
+	<!--- welcome will give a specific width to the element. -->
+	<div class="row welcome text-center">
+
+		<div class="col-12">
+			<h1 class="display-4">Built with ease.</h1>
+		</div>
+		<hr>
+		<div class="col-12">
+			<p class="lead">Welcome to the Bootstrap example website. Bootstrap is a free and open-source frontend library with HTML and CSS based designs</p>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+<!--- Three Column Section -->
+<!--- As always, initialize the countainer for all the width (fluid), the container allows us to use the grid, then we take a row to display the element -->
+<!--- -->
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<!--- FontAwesome icon reference-->
+			<i class="fas fa-code"></i>
+			<h3>HTML5</h3>
+			<p>Built with the latest version of HTML</p>
+		</div>
+
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<!--- FontAwesome icon reference-->
+			<i class="fas fa-bold"></i>
+			<h3>BOOTSTRAP</h3>
+			<p>Built with the latest version of BOOTSTRAP</p>
+		</div>
+
+		<div class="col-sm-12 col-md-4">
+			<!--- FontAwesome icon reference-->
+			<i class="fab fa-css3"></i>
+			<h3>CSS3</h3>
+			<p>Built with the latest version of CSS3</p>
+		</div>
+
+	</div>
+	<!--- display an horizontal row -->
+	<hr class="my-4">
+
+</div>
+
+
+
+
+
+<!--- Two Column Section -->
+<!--- -->
+<!--- -->
+<div class="container-fluid padding">
+	<div class="row padding">
+
+		<!--- the first col specification is optional since it will cover all by default (fluid) -->
+		<div class="col-md-12 col-lg-6">
+			<h2>If you build it...</h2>
+			<p>The columns will automatically stack on top of each other when the screen is less than 576px wide.</p>
+			<p>Resize the browser window to see the effect. Responsive web design has become more important as the amount of mobile traffic now accounts for more than half of the total internet traffic.</p>
+			<p>It can also display the web page differently depending on the screen size or viewing device.</p>
+			<br>
+			<!--- no btn-lg, its a bit smaller than previously -->
+			<a href="#" class="btn btn-primary">Learn more</a>
+		</div>
+		<!--- second column -->
+		<div class="col-lg-6">
+			<!--- add fluid for responsiveness -->
+			<img src="img/desk.png" class="img-fluid">
+		</div>
+	</div>
+</div>
+
+<!--- the number in class works like the headers, revised sizing -->
+<hr class="my-4">
+
+
+
+<!--- Fixed background -->
+<!--- wrap around the figure. Figure is used to designate an area of self-contained content that does not affect the main flow of the article. It is useful with items like diagrams, illustrations, images, and sections of computer code -->
+
+<figure>
+	<div class="fixed-wrap">
+		<div id="fixed">
+	
+		</div>
+	</div>
+</figure>
+
+
+
+
+
+
+<!--- Emoji Section -->
+<!--- we create an hidden emoji section. Here the button class doesnt matter -->
+<button class="fun" data-toggle="collapse" data-target="#emoji">Click for fun</button>
+<div id="emoji" class="collapse">
+	<div class="container-fluid padding">
+		<div class="row text-center">
+
+			<div class="col-sm-6 col-md-3">
+				<img src="img/gif/panda.gif" class="gif">
+			</div>
+
+			<div class="col-sm-6 col-md-3">
+				<img src="img/gif/poo.gif" class="gif">
+			</div>
+
+			<div class="col-sm-6 col-md-3">
+				<img src="img/gif/unicorn.gif" class="gif">
+			</div>
+
+			<div class="col-sm-6 col-md-3">
+				<img src="img/gif/chicken.gif" class="gif">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+  
+<!--- Meet the team -->
+
+<!--- -->
+<div class="container-fluid padding">
+	<div class="row welcome text-center">
+
+		<div class="col-12">
+			<h1 class="display-4">Meet the team</h1>
+		</div>
+		<hr>
+
+	</div>
+</div>
+
+
+
+
+
+<!--- Cards -->
+<!--- Here we use the Bootstrap card template, that allows an image with title, text and button -->
+<!--- -->
+<div class="container-fluid padding">
+	<div class="row padding">
+
+		<!--- 3 cards on 12 columns -->
+		<div class="col-md-4">
+
+			<div class="card">
+				<!--- set the image on top -->
+				<img class="card-img-top" src="img/team1.png">
+				<div class="card-body">
+					<h4 class="card-title">John Doe</h4>
+					<p class="card-text">John is an internet entrepreneur with almost 1 day of experience.</p>
+					<a href="#" class="btn btn-outline-secondary">See profile</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+
+			<div class="card">
+				<!--- set the image on top -->
+				<img class="card-img-top" src="img/team2.png">
+				<div class="card-body">
+					<h4 class="card-title">Jary Mo</h4>
+					<p class="card-text">Mary Jo is a web designer with almost 10 years of unemployment.</p>
+					<a href="#" class="btn btn-outline-secondary">See profile</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+
+			<div class="card">
+				<!--- set the image on top -->
+				<img class="card-img-top" src="img/team3.png">
+				<div class="card-body">
+					<h4 class="card-title">Phil Ho</h4>
+					<p class="card-text">Phil is a developer with over 5 years of web development experience with the best frontend framework, React.</p>
+					<a href="#" class="btn btn-outline-secondary">See profile</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
+
+<!--- Two Column Section -->
+<!--- -->
+<!--- -->
+<div class="container-fluid padding">
+	<div class="row padding">
+
+		<!--- the first col specification is optional since it will cover all by default (fluid) -->
+		<div class="col-md-12 col-lg-6">
+			<h2>Our philosophy</h2>
+			<p>We know that greatness in a disruptive era require some balls, curious talent and a culture that believes we're smarter than anyone else.</p>
+			<p>We approach every challenge holistically, with best-in-class expertise in data, creativity, poverty, unemployment, technology, search, social and moar. We call this Hypocrisy. It has the power to build our clients'scams and transform their business. And while it may seem like bullshit, we've got it down to a science.</p>
+			<br>
+		</div>
+		<!--- second column -->
+		<div class="col-lg-6">
+			<!--- add fluid for responsiveness -->
+			<img src="img/bootstrap2.png" class="img-fluid">
+		</div>
+	</div>
+</div>
+
+<!--- the number in class works like the headers, revised sizing -->
+<hr class="my-4">
+
+
+
+<!--- Connect -->
+<!--- -->
+<!--- -->
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-12">
+			<h2>Connect</h2>
+		</div>
+		<div class="col-12 social padding">
+			<a href="#"><i class="fab fa-facebook"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-google-plus-g"></i></a>
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="#"><i class="fab fa-youtube"></i></a>
+		</div>
+		
+	</div>
+</div>
+
+
+
+<!--- Footer -->
+<!--- -->
+<!--- -->
+<footer>
+	<div class="container-fluid padding">
+		<div class="row text-center">
+
+			<!--- As usual, every size inferior will use the default 12 columns and every size superior will use this value without further specification -->
+			<div class="col-md-4">
+				<img src="img/w3newbie.png">
+				<hr class="light">
+				<p>555-555-5555</p>
+				<p>email</p>
+				<p>Steet</p>
+			</div>
+
+			<div class="col-md-4">
+				<hr class="light">
+				<h5>Our Hours</h5>
+				<hr class="light">
+				<p>Monday:9am - 5pm</p>
+				<p>Saturday:10am - 4pm</p>
+				<p>Sunday: closed</p>
+			</div>
+
+			<div class="col-md-4">
+				<hr class="light">
+				<h5>Service Area</h5>
+				<hr class="light">
+				<p>City, State</p>
+				<p>City, State</p>
+				<p>City, State</p>
+				<p>City, State</p>
+			</div>
+			<!--- bot footer, we stay in the row but add a col 12 -->
+			<div class="col-12">
+				<hr class="light-100">
+				<!--- copyright symbol, JS unicode reference -->
+				<h5>&copy; w3newbie.com</h5>
+			</div>
+
+
+
+		</div>
+	</div>
+</footer>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
